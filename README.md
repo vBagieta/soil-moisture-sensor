@@ -39,7 +39,7 @@ Pin `-`z pinem `GND` na Arduino
 
 ## Kalibracja czujnika wilgotnośći
 ### Kod do kalibracji:
-Pin danych z czujnika został podpięty do pinu A0!
+Pin danych z czujnika został podpięty do pinu `A0`!
 
 ```
 void setup() {
