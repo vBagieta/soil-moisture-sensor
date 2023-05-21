@@ -34,7 +34,7 @@ Pin `+` z pinem `5V` na Arduino
 
 Pin `out` z pinem `2` na Arduino
 
-Pin `-`z pinem `GND` na Arduino
+Pin `-` z pinem `GND` na Arduino
 
 
 ## Kalibracja czujnika wilgotnośći
@@ -47,7 +47,7 @@ void setup() {
 }
 void loop() {
   int val;
-  val = analogRead(0);
+  val = analogRead(A0);
   Serial.println(val);
   delay(100);
 }
