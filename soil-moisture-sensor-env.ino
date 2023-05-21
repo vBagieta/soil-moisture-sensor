@@ -31,37 +31,34 @@ void setup()
   lcd.print("Czekam na zmiane");
 
   dht.setup(DHT11_PIN);
-
 }
 
 void loop() {
   soilMoistureValue = analogRead(A0);
   voltage = (soilMoistureValue * 5) /1024;
+
   int envHumidity = dht.getHumidity();
   int envTemperature = dht.getTemperature();
 
   if(soilMoistureValue > wetValue && soilMoistureValue < (wetValue + intervals)) {
-    lcd.setCursor(0, 0);
-    lcd.print("W. gleby " + String(voltage) + "V  ");
-    lcd.setCursor(0, 1);
-    lcd.print("");
+    addTitle();
     lcd.print("B.Mokra H" + String(envHumidity) + "%T" + String(envTemperature) + "*  ");
     delay(90);
 
   } else if(soilMoistureValue > (wetValue + intervals) && soilMoistureValue < (dryValue - intervals)) {
-    lcd.setCursor(0, 0);  
-    lcd.print("W. gleby " + String(voltage) + "V  ");
-    lcd.setCursor(0, 1);
-    lcd.print("");
+    addTitle();
     lcd.print("Mokra! H" + String(envHumidity) + "% T" + String(envTemperature) + "*  ");
     delay(90);
 
   } else if(soilMoistureValue < dryValue && soilMoistureValue > (dryValue - intervals)) {
-    lcd.setCursor(0, 0);
-    lcd.print("W. gleby " + String(voltage) + "V  ");
-    lcd.setCursor(0, 1);
-    lcd.print("");
+    addTitle();
     lcd.print("Sucha! H" + String(envHumidity) + "% T" + String(envTemperature) + "*  ");
     delay(90);
   }
+}
+
+void addTitle() {
+  lcd.setCursor(0, 0);
+  lcd.print("W. gleby " + String(voltage) + "V  ");
+  lcd.setCursor(0, 1);
 }
