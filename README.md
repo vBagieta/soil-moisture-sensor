@@ -10,7 +10,7 @@
 
 ## Biblioteki
 - [hd44780](https://www.arduinolibraries.info/libraries/hd44780)
-- [arduino-DHT](https://github.com/markruys/arduino-DHT) *Jeżeli użyjesz wersji z czujnikiem wilgotnośći i temperatury*
+- [DHT](https://github.com/markruys/arduino-DHT) *Jeżeli użyjesz wersji z czujnikiem wilgotnośći i temperatury*
 ## Podłączenia
 
 ### Wyświetlacz
