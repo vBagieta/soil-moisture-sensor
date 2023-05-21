@@ -41,7 +41,7 @@ void loop() {
     lcd.print("B. mokra! (");
     lcd.print(soilMoistureValue);
     lcd.print(") ");
-    delay(150);
+    delay(90);
 
   } else if(soilMoistureValue > (WaterValue + intervals) && soilMoistureValue < (AirValue - intervals)) {
 
@@ -51,7 +51,7 @@ void loop() {
     lcd.print("Mokra! (");
     lcd.print(soilMoistureValue);
     lcd.print(") ooo");
-    delay(150);
+    delay(90);
 
     lcd.print("Wilgotnosc gleby:");
     lcd.setCursor(0, 1);
@@ -59,7 +59,7 @@ void loop() {
     lcd.print("Mokra! (");
     lcd.print(soilMoistureValue);
     lcd.print(") Ooo");
-    delay(150);
+    delay(90);
 
     lcd.print("Wilgotnosc gleby:");
     lcd.setCursor(0, 1);
@@ -67,7 +67,7 @@ void loop() {
     lcd.print("Mokra! (");
     lcd.print(soilMoistureValue);
     lcd.print(") oOo");
-    delay(150);
+    delay(90);
 
     lcd.print("Wilgotnosc gleby:");
     lcd.setCursor(0, 1);
@@ -75,7 +75,7 @@ void loop() {
     lcd.print("Mokra! (");
     lcd.print(soilMoistureValue);
     lcd.print(") ooO");
-    delay(150);
+    delay(90);
 
   } else if(soilMoistureValue < AirValue && soilMoistureValue > (AirValue - intervals)) {
 
@@ -85,7 +85,7 @@ void loop() {
     lcd.print("Sucha! (");
     lcd.print(soilMoistureValue);
     lcd.print(") ooo");
-    delay(150);
+    delay(90);
 
     lcd.print("Wilgotnosc gleby:");
     lcd.setCursor(0, 1);
@@ -93,7 +93,7 @@ void loop() {
     lcd.print("Sucha! (");
     lcd.print(soilMoistureValue);
     lcd.print(") Ooo");
-    delay(150);
+    delay(90);
 
     lcd.print("Wilgotnosc gleby:");
     lcd.setCursor(0, 1);
@@ -101,7 +101,7 @@ void loop() {
     lcd.print("Sucha! (");
     lcd.print(soilMoistureValue);
     lcd.print(") oOo");
-    delay(150);
+    delay(90);
 
     lcd.print("Wilgotnosc gleby:");
     lcd.setCursor(0, 1);
@@ -109,8 +109,6 @@ void loop() {
     lcd.print("Sucha! (");
     lcd.print(soilMoistureValue);
     lcd.print(") ooO");
-    delay(150);
-
+    delay(90);
   }
-  delay(150);
 }
