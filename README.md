@@ -29,7 +29,7 @@ Pin `VCC` z pinem `3.3V` na Arduino
 
 Pin `AUOT` z pinem `A0` na Arduino
 
-### Czujnik wilgotnośći i temperatury otoczenia
+### Czujnik wilgotnośći i temperatury
 Pin `+` z pinem `5V` na Arduino
 
 Pin `out` z pinem `2` na Arduino
