@@ -11,7 +11,7 @@
 ## Biblioteki
 - [hd44780](https://www.arduinolibraries.info/libraries/hd44780)
 - [DHT](https://github.com/markruys/arduino-DHT) *Jeżeli użyjesz wersji z czujnikiem wilgotnośći i temperatury*
-## Podłączenia
+## Połączenia
 
 ### Wyświetlacz
 Pin `GND` z pinem `GND` na Arduino
@@ -55,14 +55,14 @@ void loop() {
 ### Kroki
 Na początku zapisz najwyższą wartość, jaką czujnik uzyskuje, gdy jest suchy. Zmień wartość w kodzie (domyślnie 603) na zmierzoną:
 ```
-const int AirValue = 603; -> const int AirValue = TWOJA_WARTOŚĆ;
+const int dryValue = 603; -> const int dryValue = TWOJA_WARTOŚĆ;
 ```
 
 
 Sprawdź najniższą wartość, jaką osiagą czujnik po całkowitemu zamoczeniowi w wodzie.  Zmień wartość w kodzie (domyślnie 307) na zmierzoną:
 
 ```
-const int WaterValue = 307; -> const int WaterValue = TWOJA_WARTOŚĆ;
+const int wetValue = 307; -> const int wetValue = TWOJA_WARTOŚĆ;
 ```
 
 Teraz wystarczy załadować kod do Arduino i wszytko powinno działać!
