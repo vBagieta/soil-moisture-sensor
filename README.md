@@ -2,7 +2,7 @@
 
 ## Wymagania
 - Arduino UNO
-- Czujnik wilgotności gleby
+- [Czujnik wilgotności gleby](https://botland.com.pl/gravity-czujniki-pogodowe/10305-dfrobot-gravity-analogowy-czujnik-wilgotnosci-gleby-odporny-na-korozje-sen0193-5903351243155.html?cd=18298825651&ad=&kd=&gclid=CjwKCAjwgqejBhBAEiwAuWHioMwWA4SEuGi1RUKJWuG2f7o5MhYemAxIOgkFh670djLlfkb2HUvX_BoCisoQAvD_BwE)
 - Wyświetlacz LCD (2x16) wraz z modółem I2C
 
 ## Biblioteki
@@ -26,20 +26,21 @@ Pin VCC z pinem 3.3V na Arduino
 Pin AUOT z pinem A0 na Arduino
 
 ## Kalibracja czujnika wilgotnośći
-Kod do kalibracji:
+### Kod do kalibracji:
+Pin danych z czujnika został podpięty do pinu A0!
 
 ```
 void setup() {
-  Serial.begin(9600); // open serial port, set the baud rate as 9600 bps
+  Serial.begin(9600);
 }
 void loop() {
   int val;
-  val = analogRead(0); //connect sensor to Analog 0
-  Serial.println(val); //print the value to serial port
+  val = analogRead(0);
+  Serial.println(val);
   delay(100);
 }
 ```
-### Czynności
+### Kroki
 Na początku zapisz najwyższą wartość, jaką czujnik uzyskuje, gdy jest suchy. Zmień wartość w kodzie (domyślnie 603) na zmierzoną:
 ```
 const int AirValue = 603; -> const int AirValue = TWOJA_WARTOŚĆ;
@@ -51,4 +52,6 @@ Sprawdź najniższą wartość, jaką osiagą czujnik po całkowitemu zamoczenio
 ```
 const int WaterValue = 307; -> const int WaterValue = TWOJA_WARTOŚĆ;
 ```
+
+Teraz wystarczy załadować kod do Arduino i wszytko powinno działać!
 
