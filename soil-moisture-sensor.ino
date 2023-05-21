@@ -34,24 +34,20 @@ void loop() {
   voltage = (soilMoistureValue * 5) / 1024;
 
   if(soilMoistureValue > wetValue && soilMoistureValue < (wetValue + intervals)) {
-    addTitle();
-    lcd.print("B. mokra! " + String(voltage) + "V ");
-    delay(90);
+    createDisplay("B. mokra!");
 
   } else if(soilMoistureValue > (wetValue + intervals) && soilMoistureValue < (dryValue - intervals)) {
-    addTitle();
-    lcd.print("Mokra! " + String(voltage) + "V    ");
-    delay(90);
+    createDisplay("Mokra!");
 
   } else if(soilMoistureValue < dryValue && soilMoistureValue > (wetValue - intervals)) {
-    addTitle();
-    lcd.print("Sucha! " + String(voltage) + "V    ");
-    delay(90);
+    createDisplay("Sucha!");
   }
 }
 
-void addTitle() {
+void createDisplay(String sensorStatus) {
   lcd.setCursor(0, 0);
   lcd.print("Wilgotnosc gleby");
   lcd.setCursor(0, 1);
+  lcd.print(String(sensorStatus) + " " + String(voltage) + "V    ");
+  delay(100);
 }
