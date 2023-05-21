@@ -10,7 +10,7 @@
 ## Podłączenia
 
 ### Wyświetlacz
-Pin GND z pinem GND na Arduino
+Pin `GND` z pinem `GND` na Arduino
 
 Pin `VCC` z pinem `5V` na Arduino
 
