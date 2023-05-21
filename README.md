@@ -67,3 +67,8 @@ const int WaterValue = 307; -> const int WaterValue = TWOJA_WARTOŚĆ;
 
 Teraz wystarczy załadować kod do Arduino i wszytko powinno działać!
 
+## Propozycje & Poprawki
+Wszelkie propozycje badź poprawki można zgłosić [tutaj](https://github.com/vBagieta/soil-moisture-sensor/issues)
+
+Zmiany w kodzie -> [tu!](https://github.com/vBagieta/soil-moisture-sensor/compare)
+
