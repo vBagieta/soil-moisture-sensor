@@ -25,7 +25,6 @@ void setup()
   hd44780::fatalError(status);
   }
 
-  lcd.print("Wilgotnosc gleby");
   lcd.setCursor(0, 1);
   lcd.print("Czekam na zmiane");
 
@@ -36,7 +35,7 @@ void loop() {
   voltage = (soilMoistureValue * 5) / 1024;
 
   if(soilMoistureValue > wetValue && soilMoistureValue < (wetValue + intervals)) {
-
+    lcd.setCursor(0, 0);
     lcd.print("Wilgotnosc gleby");
     lcd.setCursor(0, 1);
     lcd.print("");
@@ -44,7 +43,7 @@ void loop() {
     delay(90);
 
   } else if(soilMoistureValue > (wetValue + intervals) && soilMoistureValue < (dryValue - intervals)) {
-
+    lcd.setCursor(0, 0);
     lcd.print("Wilgotnosc gleby");
     lcd.setCursor(0, 1);
     lcd.print("");
@@ -52,7 +51,7 @@ void loop() {
     delay(90);
 
   } else if(soilMoistureValue < dryValue && soilMoistureValue > (wetValue - intervals)) {
-
+    lcd.setCursor(0, 0);
     lcd.print("Wilgotnosc gleby");
     lcd.setCursor(0, 1);
     lcd.print("");
