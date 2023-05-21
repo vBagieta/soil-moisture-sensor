@@ -7,9 +7,9 @@ hd44780_I2Cexp lcd2(0x27);
 
 const int LCD_COLS = 16;
 const int LCD_ROWS = 2;
-
 const int dryValue = 603;
 const int wetValue = 307;
+
 int intervals = (dryValue - wetValue)/3;
 float soilMoistureValue = 0;
 float voltage = 0;
@@ -27,7 +27,6 @@ void setup()
 
   lcd.setCursor(0, 1);
   lcd.print("Czekam na zmiane");
-
 }
 
 void loop() {
@@ -35,27 +34,26 @@ void loop() {
   voltage = (soilMoistureValue * 5) / 1024;
 
   if(soilMoistureValue > wetValue && soilMoistureValue < (wetValue + intervals)) {
-    lcd.setCursor(0, 0);
-    lcd.print("Wilgotnosc gleby");
+    addTitle();
     lcd.setCursor(0, 1);
-    lcd.print("");
     lcd.print("B. mokra! " + String(voltage) + "V ");
     delay(90);
 
   } else if(soilMoistureValue > (wetValue + intervals) && soilMoistureValue < (dryValue - intervals)) {
-    lcd.setCursor(0, 0);
-    lcd.print("Wilgotnosc gleby");
+    addTitle();
     lcd.setCursor(0, 1);
-    lcd.print("");
     lcd.print("Mokra! " + String(voltage) + "V    ");
     delay(90);
 
   } else if(soilMoistureValue < dryValue && soilMoistureValue > (wetValue - intervals)) {
-    lcd.setCursor(0, 0);
-    lcd.print("Wilgotnosc gleby");
+    addTitle();
     lcd.setCursor(0, 1);
-    lcd.print("");
     lcd.print("Sucha! " + String(voltage) + "V    ");
     delay(90);
   }
+}
+
+void addTitle() {
+  lcd.setCursor(0, 0);
+  lcd.print("Wilgotnosc gleby");
 }
