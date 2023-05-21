@@ -35,19 +35,16 @@ void loop() {
 
   if(soilMoistureValue > wetValue && soilMoistureValue < (wetValue + intervals)) {
     addTitle();
-    lcd.setCursor(0, 1);
     lcd.print("B. mokra! " + String(voltage) + "V ");
     delay(90);
 
   } else if(soilMoistureValue > (wetValue + intervals) && soilMoistureValue < (dryValue - intervals)) {
     addTitle();
-    lcd.setCursor(0, 1);
     lcd.print("Mokra! " + String(voltage) + "V    ");
     delay(90);
 
   } else if(soilMoistureValue < dryValue && soilMoistureValue > (wetValue - intervals)) {
     addTitle();
-    lcd.setCursor(0, 1);
     lcd.print("Sucha! " + String(voltage) + "V    ");
     delay(90);
   }
@@ -56,4 +53,5 @@ void loop() {
 void addTitle() {
   lcd.setCursor(0, 0);
   lcd.print("Wilgotnosc gleby");
+  lcd.setCursor(0, 1);
 }
