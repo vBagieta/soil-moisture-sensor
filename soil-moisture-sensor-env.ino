@@ -15,6 +15,7 @@ const int wetValue = 307;
 
 int intervals = (dryValue - wetValue)/3;
 float soilMoistureValue = 0;
+float voltage = 0;
 
 void setup()
 {
@@ -35,7 +36,7 @@ void setup()
 
 void loop() {
   soilMoistureValue = analogRead(A0);
-  float voltage = (soilMoistureValue * 5) /1024;
+  voltage = (soilMoistureValue * 5) /1024;
   int envHumidity = dht.getHumidity();
   int envTemperature = dht.getTemperature();
 
