@@ -7,10 +7,10 @@ hd44780_I2Cexp lcd2(0x27);
 
 const int LCD_COLS = 16;
 const int LCD_ROWS = 2;
+const int dryValue = 603;
+const int wetValue = 307;
 
-const int AirValue = 603;
-const int WaterValue = 307;
-int intervals = (AirValue - WaterValue)/3;
+int intervals = (dryValue - wetValue)/3;
 int soilMoistureValue = 0;
 
 void setup()
@@ -33,82 +33,28 @@ void setup()
 void loop() {
   soilMoistureValue = analogRead(A0);
 
-  if(soilMoistureValue > WaterValue && soilMoistureValue < (WaterValue + intervals)) {
+  if(soilMoistureValue > wetValue && soilMoistureValue < (wetValue + intervals)) {
 
     lcd.print("Wilgotnosc gleby:");
     lcd.setCursor(0, 1);
     lcd.print("");
-    lcd.print("B. mokra! (");
-    lcd.print(soilMoistureValue);
-    lcd.print(") ");
+    lcd.print("B. mokra! (" + String(soilMoistureValue) + ") ");
     delay(90);
 
-  } else if(soilMoistureValue > (WaterValue + intervals) && soilMoistureValue < (AirValue - intervals)) {
+  } else if(soilMoistureValue > (wetValue + intervals) && soilMoistureValue < (dryValue - intervals)) {
 
     lcd.print("Wilgotnosc gleby:");
     lcd.setCursor(0, 1);
     lcd.print("");
-    lcd.print("Mokra! (");
-    lcd.print(soilMoistureValue);
-    lcd.print(") ooo");
+    lcd.print("Mokra! (" + String(soilMoistureValue) + ")    ");
     delay(90);
 
-    lcd.print("Wilgotnosc gleby:");
-    lcd.setCursor(0, 1);
-    lcd.print("");
-    lcd.print("Mokra! (");
-    lcd.print(soilMoistureValue);
-    lcd.print(") Ooo");
-    delay(90);
+  } else if(soilMoistureValue < dryValue && soilMoistureValue > (wetValue - intervals)) {
 
     lcd.print("Wilgotnosc gleby:");
     lcd.setCursor(0, 1);
     lcd.print("");
-    lcd.print("Mokra! (");
-    lcd.print(soilMoistureValue);
-    lcd.print(") oOo");
-    delay(90);
-
-    lcd.print("Wilgotnosc gleby:");
-    lcd.setCursor(0, 1);
-    lcd.print("");
-    lcd.print("Mokra! (");
-    lcd.print(soilMoistureValue);
-    lcd.print(") ooO");
-    delay(90);
-
-  } else if(soilMoistureValue < AirValue && soilMoistureValue > (AirValue - intervals)) {
-
-    lcd.print("Wilgotnosc gleby:");
-    lcd.setCursor(0, 1);
-    lcd.print("");
-    lcd.print("Sucha! (");
-    lcd.print(soilMoistureValue);
-    lcd.print(") ooo");
-    delay(90);
-
-    lcd.print("Wilgotnosc gleby:");
-    lcd.setCursor(0, 1);
-    lcd.print("");
-    lcd.print("Sucha! (");
-    lcd.print(soilMoistureValue);
-    lcd.print(") Ooo");
-    delay(90);
-
-    lcd.print("Wilgotnosc gleby:");
-    lcd.setCursor(0, 1);
-    lcd.print("");
-    lcd.print("Sucha! (");
-    lcd.print(soilMoistureValue);
-    lcd.print(") oOo");
-    delay(90);
-
-    lcd.print("Wilgotnosc gleby:");
-    lcd.setCursor(0, 1);
-    lcd.print("");
-    lcd.print("Sucha! (");
-    lcd.print(soilMoistureValue);
-    lcd.print(") ooO");
+    lcd.print("Sucha! (" + String(soilMoistureValue) + ")    ");
     delay(90);
   }
 }
