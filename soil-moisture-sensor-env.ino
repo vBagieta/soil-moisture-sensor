@@ -16,6 +16,8 @@ const int wetValue = 307;
 int intervals = (dryValue - wetValue)/3;
 float soilMoistureValue = 0;
 float voltage = 0;
+int envHumidity = dht.getHumidity();
+int envTemperature = dht.getTemperature();
 
 void setup()
 {
@@ -35,6 +37,8 @@ void setup()
 
 void loop() {
   soilMoistureValue = analogRead(A0);
+  voltage = (soilMoistureValue * 5) /1024;
+
   if(soilMoistureValue > wetValue && soilMoistureValue < (wetValue + intervals)) {
      createDisplay("B.mokra!");
 
@@ -47,11 +51,6 @@ void loop() {
 }
 
 void createDisplay(String sensorStatus) {
-  int envHumidity = dht.getHumidity();
-  int envTemperature = dht.getTemperature();
-
-  voltage = (soilMoistureValue * 5) /1024;
-
   lcd.setCursor(0, 0);
   lcd.print("W. gleby " + String(voltage) + "V  ");
   lcd.setCursor(0, 1);
